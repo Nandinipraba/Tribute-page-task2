@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribute to Kalpana Chawla</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #111111;
+            background-size: cover;
+            color: #ffff;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            min-height: 100%;
+            box-sizing: border-box;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #a18509;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(206, 209, 12, 0.5);
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+        .quote {
+            font-style: italic;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.2em;
+            padding: 10px;
+            background-color: rgba(192, 181, 21, 0.1);
+            border-radius: 5px;
+        }
+        .achievements {
+            list-style-type: none;
+            padding: 0;
+        }
+        .achievements li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .achievements li:hover {
+            color: #a18509;
+            background-color: rgba(192, 181, 21, 0.1);
+        }
+        .diagram {
+            max-width: 600px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .diagram svg {
+            width: 100%;
+            height: 300px;
+        }
+        .diagram circle {
+            fill: #ffff;
+            stroke: #000;
+            stroke-width: 2;
+        }
+        .diagram text {
+            font-size: 14px;
+            fill: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kalpana Chawla</h1>
+            <p>1962 - 2003</p>
+        </header>
+        
+        <div class="image-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Kalpana_Chawla%2C_NASA_photo_portrait_in_orange_suit.jpg/800px-Kalpana_Chawla%2C_NASA_photo_portrait_in_orange_suit.jpg" alt="Kalpana Chawla">
+        
+        </div>
+        <p >Kalpana Chawla, born on March 17, 1962, in Karnal, India, was a pioneering astronaut and aerospace engineer. From a young age, she showed a keen interest in flying and space. After earning a degree in aeronautical engineering from Punjab Engineering College in 1982, Chawla moved to the United States to pursue higher education. She obtained an MS in aerospace engineering from the University of Texas at Arlington in 1984, followed by a second MS and a PhD from the University of Colorado Boulder in 1986 and 1988, respectively. Chawla began her career at NASA Ames Research Center in 1988, working on computational fluid dynamics. In 1994, she was selected as an astronaut candidate by NASA, becoming the first woman of Indian origin to fly in space on her first mission, STS-87, in 1997. She served as a mission specialist and operated the robotic arm during this flight. Chawla's second and final spaceflight was on the ill-fated STS-107 mission in 2003. Tragically, the Space Shuttle Columbia disintegrated upon re-entry on February 1, 2003, claiming her life and those of six other crew members. Throughout her career, Chawla received numerous awards, including the Congressional Space Medal of Honor (posthumously). She logged a total of 30 days, 14 hours, and 54 minutes in space over her two missions. Kalpana Chawla's life and achievements continue to inspire millions, particularly in the fields of space exploration and women in STEM.></p>
+        <p class="quote">"The path from dreams to success does exist. May you have the vision to find it, the courage to get on to it, and the perseverance to follow it."</p>
+        
+        <h2>Achievements</h2>
+        <ul class="achievements" id="achievementsList">
+            <li>First woman of Indian origin to go to space</li>
+            <li>Logged 30 days, 14 hours, and 54 minutes in space over two missions</li>
+            <li>Earned multiple degrees including a Ph.D. in aerospace engineering</li>
+            <li>Posthumously awarded the Congressional Space Medal of Honor</li>
+            <li>Asteroid 51826 Kalpanachawla named after her</li>
+            <li>Several buildings and institutions named in her honor</li>
+        </ul>
+        
+        <h2>Timeline</h2>
+        <div class="timeline" id="timeline">
+            <!-- Timeline items will be added here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Timeline data
+        const timelineData = [
+            { year: 1962, event: "Born in Karnal, India" },
+            { year: 1982, event: "Graduated in Aeronautical Engineering from Punjab Engineering College" },
+            { year: 1984, event: "Moved to the United States for further studies" },
+            { year: 1988, event: "Earned MS degree in Aerospace Engineering from University of Texas" },
+            { year: 1993, event: "Earned PhD in Aerospace Engineering from University of Colorado" },
+            { year: 1995, event: "Selected by NASA for astronaut training" },
+            { year: 1997, event: "First space flight on Space Shuttle Columbia" },
+            { year: 2003, event: "Second and final space flight on Space Shuttle Columbia" }
+        ];
+
+        // Function to create timeline items
+        function createTimelineItems() {
+            const timeline = document.getElementById('timeline');
+            timelineData.forEach((item, index) => {
+                const timelineItem = document.createElement('div');
+                timelineItem.className = `timeline-item ${index % 2 === 0 ? 'left' : 'right'}`;
+                timelineItem.innerHTML = `
+                    <div class="timeline-content">
+                        <h3>${item.year}</h3>
+                        <p>${item.event}</p>
+                    </div>
+                `;
+                timeline.appendChild(timelineItem);
+            });
+        }
+
+        // Function to animate achievements
+        function animateAchievements() {
+            const achievements = document.querySelectorAll('.achievements li');
+            achievements.forEach((achievement, index) => {
+                setTimeout(() => {
+                    achievement.style.opacity = '0';
+                    achievement.style.transform = 'translateX(-20px)';
+                    setTimeout(() => {
+                        achievement.style.transition = 'opacity 0.5s, transform 0.5s';
+                        achievement.style.opacity = '1';
+                        achievement.style.transform = 'translateX(0)';
+                    }, 50);
+                }, index * 200);
+            });
+        }
+
+        // Call functions when the page loads
+        window.onload = function() {
+            createTimelineItems();
+            animateAchievements();
+        };
+    </script>
+</body>
+</html>
